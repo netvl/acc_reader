@@ -1,0 +1,10 @@
+[package]
+name = "acc_reader"
+version = "1.0.0"
+authors = ["Vladimir Matveev <vladimir.matweev@gmail.com>"]
+license = "MIT/Apache-2.0"
+description = "A wrapper for std::io::Read providing std::io::Seek"
+repository = "https://github.com/netvl/acc_reader"
+documentation = "http://netvl.github.com/acc_reader/"
+readme = "Readme.md"
+keywords = ["input", "reader", "seek"]
