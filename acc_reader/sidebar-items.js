@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["DEFAULT_BUF_CAPACITY","Default capacity for the internal buffer of `AccReader`."],["DEFAULT_BUF_INCREMENT","Default increment for the internal buffer of `AccReader`."]],"struct":[["AccReader","An accumulating reader which provides `Seek` for any `Read`."]]});
