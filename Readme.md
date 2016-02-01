@@ -23,10 +23,15 @@ Just add a dependency in your `Cargo.toml`:
 
 ```toml
 [dependencies]
-acc_reader = "1.0"
+acc_reader = "2.0"
 ```
 
 ## Changelog
+
+### Version 2.0.0
+
+Changed "beyond the end of stream" seek error kind to `UnexpectedEof`. This is a breaking
+change.
 
 ### Version 1.0.0
 

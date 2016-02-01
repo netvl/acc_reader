@@ -275,7 +275,7 @@ impl<R: Read> Seek for AccReader<R> {
         match pos {
             SeekFrom::End(n) => {
                 if n > 0 {
-                    Err(io::Error::new(io::ErrorKind::InvalidInput, "seeking beyond end of stream"))
+                    Err(io::Error::new(io::ErrorKind::UnexpectedEof, "seeking beyond end of stream"))
                 } else {
                     // just read everything that's left and seek from that
                     try!(self.source.read_to_end(&mut self.buf));
@@ -297,7 +297,7 @@ impl<R: Read> Seek for AccReader<R> {
                 let need_to_read = n - self.buf.len() as u64;
                 try!(self.read_up_to(need_to_read));
                 if n > self.buf.len() as u64 {  // still not enough
-                    Err(io::Error::new(io::ErrorKind::InvalidInput, "seeking beyond end of stream"))
+                    Err(io::Error::new(io::ErrorKind::UnexpectedEof, "seeking beyond end of stream"))
                 } else {
                     self.pos = n as usize;
                     Ok(n)
@@ -319,7 +319,7 @@ impl<R: Read> Seek for AccReader<R> {
                     let need_to_read = new_pos - self.buf.len() as u64;
                     try!(self.read_up_to(need_to_read));
                     if new_pos > self.buf.len() as u64 {  // still not enough
-                        Err(io::Error::new(io::ErrorKind::InvalidInput, "seeking beyond end of stream"))
+                        Err(io::Error::new(io::ErrorKind::UnexpectedEof, "seeking beyond end of stream"))
                     } else {
                         self.pos = new_pos as usize;
                         Ok(new_pos)
@@ -389,7 +389,7 @@ mod tests {
         assert_eq!(buf, [2, 3]);
 
         // seek to beyond the end and to before the start
-        assert_eq!(reader.seek(SeekFrom::End(3)).err().unwrap().kind(), io::ErrorKind::InvalidInput);
+        assert_eq!(reader.seek(SeekFrom::End(3)).err().unwrap().kind(), io::ErrorKind::UnexpectedEof);
         assert_eq!(reader.seek(SeekFrom::Current(-128)).err().unwrap().kind(), io::ErrorKind::InvalidInput);
 
         // seek to the end from the start
@@ -399,6 +399,6 @@ mod tests {
 
         // seek to beyond the end from the start
         let mut reader = AccReader::new(inner);
-        assert_eq!(reader.seek(SeekFrom::Start(128)).err().unwrap().kind(), io::ErrorKind::InvalidInput);
+        assert_eq!(reader.seek(SeekFrom::Start(128)).err().unwrap().kind(), io::ErrorKind::UnexpectedEof);
     }
 }
