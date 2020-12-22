@@ -20,6 +20,12 @@ change.
 See [`AccReader`](http://docs.rs/acc_reader/latest/acc_reader/struct.AccReader.html) documentation
 for more information and examples.
 
+---
+
+**Note: because I no longer have capacity to support it, I'm now looking for a new maintainer for this library. Until I'm able to find one, it is unlikely to receive new updates in any reasonably timely manner.**
+
+---
+
 ## Usage
 
 Just add a dependency in your `Cargo.toml`:
