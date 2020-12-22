@@ -17,7 +17,7 @@ buffering, therefore `AccReader` also provides `std::io::BufRead` interface, tho
 method does not use this buffering. If/when specialization gets available in Rust, this could
 change.
 
-See [`AccReader`](http://docs.rs/acc_reader/struct.AccReader.html) documentation
+See [`AccReader`](http://docs.rs/acc_reader/latest/acc_reader/struct.AccReader.html) documentation
 for more information and examples.
 
 ## Usage
