@@ -1,12 +1,15 @@
 acc_reader, a seekable wrapper for input streams
 ================================================
 
-[![Build Status][travis]](https://travis-ci.org/netvl/acc_reader) [![crates.io][crates]](https://crates.io/crates/acc_reader)
+[![Build Status][actions]](https://github.com/netvl/acc_reader/actions?query=workflow%3ACI)
+[![crates.io][crates]](https://crates.io/crates/acc_reader)
+[![docs][docs]](https://docs.rs/acc_reader)
 
-  [travis]: https://img.shields.io/travis/netvl/acc_reader.svg?style=flat-square
+  [actions]: https://img.shields.io/github/workflow/status/netvl/acc_reader/CI/master?style=flat-square
   [crates]: https://img.shields.io/crates/v/acc_reader.svg?style=flat-square
+  [docs]: https://img.shields.io/badge/docs-latest%20release-6495ed.svg?style=flat-square
 
-[Documentation](http://netvl.github.io/acc_reader/)
+[Documentation](http://docs.rs/acc_reader)
 
 acc_reader provides `AccReader`, a struct which wraps an arbitrary instance of `std::io::Read`
 and provides an implementation of `std::io::Seek` for it. Naturally, this involves internal
@@ -14,7 +17,7 @@ buffering, therefore `AccReader` also provides `std::io::BufRead` interface, tho
 method does not use this buffering. If/when specialization gets available in Rust, this could
 change.
 
-See [`AccReader`](http://netvl.github.io/acc_reader/acc_reader/struct.AccReader.html) documentation
+See [`AccReader`](http://docs.rs/acc_reader/struct.AccReader.html) documentation
 for more information and examples.
 
 ## Usage
